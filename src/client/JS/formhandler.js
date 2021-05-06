@@ -1,7 +1,7 @@
 function handleSubmit(event) {
     event.preventDefault();
     const inputText = document.getElementById('destination').value;
-    Client.collectLocation('http://localhost:8080/clientdataUrl',{ sentence: inputText })
+    Client.collectLocation('http://localhost:8081/clientdataUrl',{ sentence: inputText })
     .then((response)=> {
         try {
             Client.updateUI(response);
