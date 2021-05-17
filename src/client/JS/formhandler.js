@@ -1,22 +1,27 @@
 function handleSubmit(event) {
     event.preventDefault();
-    const inputText = document.getElementById('destination').value;
-    Client.collectLocation('http://localhost:8081/clientdataUrl',{ sentence: inputText })
-    .then((response)=> {
-        try {
-            Client.updateUI(response);
-        } catch (error) {
-            alert("please enter a valid URL");
-            console.log("error", error);
-        }
-    })
-
-
-    //Client.cleanData();
-    //document.getElementById("output").className = "activated";
-
-    //const inputText = document.getElementById('name').value;
-//will check if url is good
-    //Client.urlCheck(inputText);
+    const inputText = document.getElementById('destination').value
+    
+    if (inputText=== ""){
+        alert("please enter a destination")
+        document.getElementById("destination").style.borderColor = "red"
+        window.stop()
+    }else{
+        Client.pictures({ sentence: inputText })
+        Client.collectData('http://localhost:8081/geonameUrl',{ sentence: inputText })
+        .then((response)=> {
+            try{
+                Client.countdown(response)
+                Client.weatherOrforcast(response)
+                Client.collectData('http://localhost:8081/travelbriefingUrl',response)
+                .then((data)=> {
+                    Client.updateUItravelInfo(data)
+                })
+            }catch(error) {
+                console.log(error);
+            }
+        })
+    }
 }
+
 export { handleSubmit}

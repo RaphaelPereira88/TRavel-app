@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Raf's Travel app</title>
     </head>
     <body>
@@ -14,17 +15,30 @@
                 <form class="form" onsubmit="return handleSubmit(event)">
                     <span>1-Please your destination:</span>
                     <input id="destination" type="text" name="input" value ="" placeholder =" destination">
-                    <input id="date" type="text" name="input" value= "" placeholder = "date">
+                    <label for="start">Select date:</label>
+                    <input id="start" type="date" name="start" placeholder="YYYY-MM-DD"> 
+                    <input id="end" type="date" name="end" placeholder="YYYY-MM-DD" >
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
             </section>
-            <section id="picture">
+
+            <section id="output1">
+                <div id="finish"></div>
+                <div id="days_left"></div>
+                <div id="trip_length"></div>
+                <div id="time"></div>
+                <div id="temp"></div>
+                <div id="maxTemp"></div>
+                <div id="minTemp"></div>
+                <div id="description"></div>
+                <img id= "icon" src="">
             </section>
-            <section id="output">
-                <dic id="test"></div>
-                <div id="date"></div>
-                <div id="temperature"></div>
-                <div id="icon"></div>
+
+            <section id="output3"></section>
+            <a href= "https://www.iec.ch/world-plugs">table of plugs</a>
+            <section id="output2"></section>
+            <section id="pixabay">
+                <img id= "picture" src="">
             </section>
         </main>
         <footer>
