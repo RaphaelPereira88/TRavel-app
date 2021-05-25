@@ -20,7 +20,6 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -35,7 +34,6 @@ app.listen(8081, function(){
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('dist/index.html'))
-    
 })
 
 app.get("/all",function(req,res){
