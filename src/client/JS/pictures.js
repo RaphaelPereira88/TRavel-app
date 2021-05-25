@@ -1,10 +1,13 @@
+import {collectData}from './collectData'
+
+const pic = document.getElementById("picture")
 function pictures(inputText){
-    Client.collectData('pictureUrl',inputText)
+    collectData('pictureUrl',inputText)
     .then((data)=> {
         try{
-            Client.updateUIpic(data)
+            pic.setAttribute("src", data.hits[0].webformatURL)
         } catch(error) {
-            console.log("error", error);
+            pic.setAttribute("src", "https://treefurniturerental.ca/wp-content/uploads/2017/05/sorry-image-not-available.jpg")
         }
     })
 }

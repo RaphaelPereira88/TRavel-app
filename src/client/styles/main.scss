@@ -1,85 +1,148 @@
+* ,:after, :before{
+    box-sizing: inherit;
+}
 
-*{
-    box-sizing: border-box;
+html{
+    box-sizing:border-box;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
-    background-color:blue;
-
+    background-color:rgb(130, 234, 243);
 }
 
-#destination{
-    border-style: thick grey;
-}
-#output1{
-    &.activated{
-        font-size: 1.5vh;
-        max-width:300px;
-        background-color: white;
-        border-radius: 10px 25px;
-        padding: 3px;
-        margin: auto;
-        padding :3px;
-        text-align: center;
-    }
+label{
+    font-size: .75rem;
+    font-weight: 700;
+    line-height: 1rem;
 }
 
-form{
+.item2 { grid-area: form; }
+.item3 { grid-area: trip; }
+.item4 { grid-area: info; }
+.item5 { grid-area: weather; }
+.item6 { grid-area: picture; }
+.item7 { grid-area: notes; }
+
+
+
+.main{
     display:grid;
+    grid-template-areas:
+    'form form form form form '
+    'trip trip trip trip trip '
+    'picture picture picture info info'
+    'picture picture picture notes notes'
+    'weather weather weather weather weather';
+    grid-gap: 20px;
+    padding-top: 20px;
+    font-family: "Skyscanner Relative",-apple-system,BlinkMacSystemFont,"Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 1rem;
+    margin-bottom:20px;
+    height:auto;
 }
 
-.info{
+
+
+
+.form{
+    display: inline-flex;
+    flex-wrap:wrap;
     width:100%;
-}
-.info{
-    div{
-        width:100%;
-        border:2px solid black;
-        margin:1.5px;
-    }
-}
-
-
-#output2.active{
-    float:right;
-    text-align: center;
-    width:80%;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    margin:auto;
-    padding: 10px;
+    vertical-align: top;
+    text-align: left;
+    padding:5px;
+    border-radius:5px;
+    background-color: rgb(118, 118, 240);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
-#output3{
+
+
+.input1{
+    width:40%
+}
+.input2,.input3{
     width:30%;
-    font-size: 1.5vh;
-    text-align:start;
+
 }
-.displayed{
-    max-width:350px;
+
+.input1,.input2,.input3{
+    height:15%
+}
+
+
+
+input:not(#button,#noteinput){
+    border: .0625rem solid #b2b2bf;
+    padding: .375rem .75rem;
+    width: 100%;
+    height: 2.25rem;
+    border-right-width: 0;
+    border-radius: .25rem 0 0 .25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    &:hover {
+        background-color: #c4f78b;
+    }
+
+}
+
+#icon{
+    width:50px;
+}
+
+
+#button{
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+    width:60px;
+    border-radius: .8rem .8rem;
+    cursor: pointer;
+    box-shadow: rgba(73, 72, 72, 0.35) 0px 5px 15px;
+    
+}
+
+
+#pixabay{
+    width:80%;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+#picture{
+    width:100%;
+    height:100%;
+    margin-bottom:20px;
+    border-radius:10px 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.item3{
+    border:none;
+    display:flex;
+    flex-wrap: wrap;
+    font-size: 2vh;
     background-color: white;
-    border-radius: 5px 10px;
+    border-radius: 50px 50px;
     padding: 3px;
-    margin: 3px;
-   
-    &.activated{
-        border: 5px solid red;
-    }
+    text-align:center;
+    margin:auto;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding:5px;
+    box-shadow: 0 1px 3px rgba(42, 42, 42, 0.12), 0 1px 2px rgba(48, 47, 47, 0.24);
 }
-
-
-.displayed{
-    div{
-    font-size: 1.5vh;
-    text-align: center;
-    align-content: center;
-    padding:3px;
-    }
-}
-
-.displayed{
-    img{
-        width: 60%;
-        height: auto;
-    }
+.iem3 div{
+        width:50%;
+        text-align: center;
+        font-family: "Skyscanner Relative",-apple-system,BlinkMacSystemFont,"Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+        border-radius: 50px 50px;
+        margin:auto;
+        padding:auto;
 }

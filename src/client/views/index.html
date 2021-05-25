@@ -5,43 +5,63 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Raf's Travel app</title>
     </head>
+
     <body>
         <header> 
-            <div class="logo"></div>
-            <p>Raf's Travel App</p>
+            <div class="item1">
+                <p>Raf's Travel App</p>
+            </div>
         </header>
-        <main>
-            <section id= "input">
+        <section class = "main">
+            <section class= "item2">
                 <form class="form" onsubmit="return handleSubmit(event)">
-                    <span>1-Please your destination:</span>
-                    <input id="destination" type="text" name="input" value ="" placeholder =" destination">
-                    <label for="start">Select date:</label>
-                    <input id="start" type="date" name="start" placeholder="YYYY-MM-DD"> 
-                    <input id="end" type="date" name="end" placeholder="YYYY-MM-DD" >
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    <div class= "input1">
+                        <label>Destination:</label>
+                        <input id="destination" type="text" name="input" value ="" placeholder =" destination">
+                    </div>
+                    <div class= "input2">
+                        <label for="start">Depart:</label>
+                        <input id="start" type="date" name="start" placeholder="YYYY-MM-DD"> 
+                    </div>
+                    <div class= "input3">
+                        <label for="start">Return:</label>
+                        <input id="end" type="date" name="end" placeholder="YYYY-MM-DD" >
+                    </div>
+                    <input type="submit" name="" value="submit" id ="button">
                 </form>
             </section>
 
-            <section id="output1">
-                <div id="finish"></div>
+            <section class ="item3">
                 <div id="days_left"></div>
                 <div id="trip_length"></div>
-                <div id="time"></div>
-                <div id="temp"></div>
-                <div id="maxTemp"></div>
-                <div id="minTemp"></div>
-                <div id="description"></div>
-                <img id= "icon" src="">
             </section>
 
-            <section id="output3"></section>
-            <a href= "https://www.iec.ch/world-plugs">table of plugs</a>
-            <section id="output2"></section>
-            <section id="pixabay">
-                <img id= "picture" src="">
+            <section id="output3" class ="item4"></section>
+
+            <section class ="item5">
+                <div id="output2"></div>
+                <div id="output1">
+                    <div id="time"></div>
+                    <div id="temp"></div>
+                    <div id="maxTemp"></div>
+                    <div id="minTemp"></div>
+                    <div id="description"></div>
+                    <img id= "icon" >
             </section>
-        </main>
-        <footer>
+
+            <section id="pixabay" class= "item6">
+                <img id= "picture" src="https://cdn.kiwicollection.com/media/property/PR004708/xl/004708-05---beach-panorama_hd-Constance%20Belle%20Mare%20Plage.jpg?cb=1613757338">
+            </section>
+
+            <section class= "item7">
+                <div id="notes">
+                    <button type="submit" value="Submit" id="getlist">Add Notes</button>
+                </div>
+                <lu id="todo"></lu>
+            </section>
+
+        </section>
+        <footer class ="footer">
             udacity Project<br>
             @copyright
         </footer>

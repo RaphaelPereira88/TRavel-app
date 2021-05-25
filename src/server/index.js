@@ -54,6 +54,7 @@ app.post("/geonameUrl", async function (req, res) {
         console.log(result)
         const response = await result.json();
         res.send(response)
+        res.end() //using res.end()
     } catch (error) {
         console.log("error", error);
     }
@@ -69,9 +70,10 @@ app.post("/pictureUrl", async function (req, res) {
     console.log('req====+>', req.body)
     const result = await fetch(picUrl+ API_Key +"&q=" + req.body.sentence + apiOption)
     try {
-        console.log(result)
         const response = await result.json();
         res.send(response)
+        console.log(response)
+        res.end() //using res.end()
     } catch (error) {
         console.log("error", error);
     }
@@ -97,37 +99,26 @@ app.post("/forcast", async function (req, res){
 
 //travelbriefing API
 
-app.post("/travelbriefingUrl", async function (req, res) {
+app.post("/restcountries", async function (req, res) {
     console.log('req====+>', req.body)
     const info = req.body
     const country = info.geonames[0].countryName
-    const result = await fetch("https://travelbriefing.org/"+ country +"?format=json")
+    const result = await fetch("https://restcountries.eu/rest/v2/name/"+ country )
     try{
         console.log(result)
         let data = await result.json();
         const newData = {
-            names:{
-                names: data.names.name,
-                continent:data.names.continent
+            name: data[0].name,
+            region:data[0].region,
+            capital:data[0].capital,
+            language: data[0].languages[0].name,
+            population:data[0].population,
+            currencies:{
+                code:data[0].currencies[0].code,
+                name:data[0].currencies[0].name,
+                symbol:data[0].currencies[0].symbol
             },
-            language:{
-                language: data.language[0].language,
-                official: data.language[0].official,
-            },
-            electricity:{
-                voltage: data.electricity.voltage,
-                plugs: data.electricity.plugs,
-            },
-            telephone:{
-                calling_code: data.telephone.calling_code,
-                emergencyNumber: data.telephone.police,
-            },
-            water: data.water.short,
-            currency:{
-                name:data.currency.name,
-                symbol:data.currency.symbol,
-                rate:data.currency.rate
-            },
+            flag : data[0].flag,
         }
         Object.assign(infoTravel, newData);
         console.log(infoTravel)

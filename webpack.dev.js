@@ -7,10 +7,6 @@ module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
     devtool: 'source-map',
-    output: {
-        libraryTarget:'var',
-        library:'Client'
-    },
     module: {
         rules: [
             {
@@ -23,6 +19,16 @@ module.exports = {
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
             }
         ]
+    },
+    resolve: {
+        // ... rest of the resolve config
+        fallback: {
+          fs: false,
+          os: false,
+          assert: false,
+          util: false,
+          path: require.resolve("path-browserify"),
+        },
     },
     plugins: [
         new HtmlWebPackPlugin({

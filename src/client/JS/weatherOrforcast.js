@@ -1,13 +1,18 @@
+import {collectData}from './collectData'
+import {timeLeft}from './timeLeft'
+import {updateUIweather}from './updateUIweather'
+import {updateUIforcast}from './updateUIforcast'
 
 function weatherOrforcast(response){
-    const newTime = Client.timeLeft()
-    Client.collectData('http://localhost:8081/forcast',response)
+    const inpudate = document.getElementById('start').value
+    const newTime = timeLeft(inpudate)
+    collectData('http://localhost:8081/forcast',response)
     .then((data)=> {
         try{
-            if (newTime <= 7.0) {
-                Client.updateUIweather(data)
+            if (newTime <=6) {
+                updateUIweather(data)
             }else{
-                Client.updateUIforcast(data)
+                updateUIforcast(data)
             }
         } catch(error) {
             alert("issue with updateUI");

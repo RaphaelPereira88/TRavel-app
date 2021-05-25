@@ -4,9 +4,11 @@ const updateUIforcast = async() => {
         const allData = await request.json();
         let number = 0
         const divForecast = document.getElementById('output2');
-        divForecast.className += "active";
+        const weatherBloc = document.createElement("DIV")
+        
+        divForecast.className = "active";
         for (const x of allData.data){
-            const weatherBloc = document.createElement("DIV")
+            const weatherdata = document.createElement("DIV")
             const day = document.createElement("DIV")
             const temp = document.createElement("DIV")
             const maxTemp = document.createElement("DIV")
@@ -21,19 +23,21 @@ const updateUIforcast = async() => {
             description.innerHTML = allData.data[number].weather.description;
             const image = allData.data[number].weather.icon
             icon.setAttribute("src", "https://www.weatherbit.io/static/img/icons/"+ image +".png");
-            weatherBloc.appendChild(day)
-            weatherBloc.appendChild(temp)
-            weatherBloc.appendChild(maxTemp)
-            weatherBloc.appendChild(minTemp)
-            weatherBloc.appendChild(description)
-            weatherBloc.appendChild(icon)
-            weatherBloc.className += "displayed";
-            divForecast.appendChild(weatherBloc)
+            weatherdata.appendChild(day)
+            weatherdata.appendChild(temp)
+            weatherdata.appendChild(maxTemp)
+            weatherdata.appendChild(minTemp)
+            weatherdata.appendChild(description)
+            weatherdata.appendChild(icon)
+            weatherdata.className += "displayed";
+            weatherBloc.appendChild(weatherdata)
+            weatherBloc.id = "weatherbloc"
             if(inputDate === allData.data[number].valid_date){
-                weatherBloc.className += " activated";
+                weatherdata.className += " activated";
             }
             number = number +1
         }
+        divForecast.appendChild(weatherBloc)
     }catch(error){
         console.log("error", error);
     }

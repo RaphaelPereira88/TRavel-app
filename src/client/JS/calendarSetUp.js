@@ -1,6 +1,5 @@
 function calendarSetUp(){
     document.getElementById('start').min= new Date().toISOString().split("T")[0]
-
     document.getElementById('end').min= new Date().toISOString().split("T")[0]
     const someDate = new Date();
     const numberOfDaysToAdd = 16;
