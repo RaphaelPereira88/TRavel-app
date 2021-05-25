@@ -24,8 +24,6 @@ label{
 .item6 { grid-area: picture; }
 .item7 { grid-area: notes; }
 
-
-
 .main{
     display:grid;
     grid-template-areas:
@@ -42,9 +40,6 @@ label{
     height:auto;
 }
 
-
-
-
 .form{
     display: inline-flex;
     flex-wrap:wrap;
@@ -57,11 +52,10 @@ label{
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
-
-
 .input1{
     width:40%
 }
+
 .input2,.input3{
     width:30%;
 
@@ -70,8 +64,6 @@ label{
 .input1,.input2,.input3{
     height:15%
 }
-
-
 
 input:not(#button,#noteinput){
     border: .0625rem solid #b2b2bf;
@@ -138,11 +130,13 @@ input:not(#button,#noteinput){
     padding:5px;
     box-shadow: 0 1px 3px rgba(42, 42, 42, 0.12), 0 1px 2px rgba(48, 47, 47, 0.24);
 }
-.iem3 div{
+.iem3{
+    div{
         width:50%;
         text-align: center;
         font-family: "Skyscanner Relative",-apple-system,BlinkMacSystemFont,"Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
         border-radius: 50px 50px;
         margin:auto;
         padding:auto;
+    }
 }

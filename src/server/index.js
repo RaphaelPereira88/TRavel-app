@@ -16,6 +16,10 @@ const { response } = require('express');
 // Start up an instance of app
 const app = express();
 
+//to hide my username and keys
+const dotenv = require('dotenv');
+dotenv.config();
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -45,11 +49,10 @@ app.get("/info",function(req,res){
 //Geoname API
 const baseURL ='http://api.geonames.org/searchJSON?name_equals='
 const urlOption = '&maxRows=2&fuzzy=0.8&username='
-const API_username = "raphael88"
 
 app.post("/geonameUrl", async function (req, res) {
     console.log('req====+>', req.body)
-    const result = await fetch(baseURL + req.body.sentence + urlOption+ API_username)
+    const result = await fetch(baseURL + req.body.sentence + urlOption+ process.env.API_username)
     try {
         console.log(result)
         const response = await result.json();
@@ -63,12 +66,11 @@ app.post("/geonameUrl", async function (req, res) {
 
 //Pixabay API
 const picUrl ='https://pixabay.com/api/?key='
-const API_Key = "21617163-891f5fc3b1e299f21fbb94327"
 const apiOption ="&per_page=3&category=travel&image_type=photo"
 
 app.post("/pictureUrl", async function (req, res) {
     console.log('req====+>', req.body)
-    const result = await fetch(picUrl+ API_Key +"&q=" + req.body.sentence + apiOption)
+    const result = await fetch(picUrl+ process.env.API_Key +"&q=" + req.body.sentence + apiOption)
     try {
         const response = await result.json();
         res.send(response)
@@ -84,8 +86,7 @@ app.post("/forcast", async function (req, res){
     const info = req.body
     const latitude = info.geonames[0].lat
     const longitude = info.geonames[0].lng
-    const weatherKey = "59baf0425a574068af814ae4922c4358"
-    const result = await fetch("https://api.weatherbit.io/v2.0/forecast/daily?lat=" + latitude + "&lon=" + longitude +"&key="+ weatherKey)
+    const result = await fetch("https://api.weatherbit.io/v2.0/forecast/daily?lat=" + latitude + "&lon=" + longitude +"&key="+ process.env.API_weatherKey)
     try{
         console.log(result)
         let data = await result.json();
@@ -97,7 +98,7 @@ app.post("/forcast", async function (req, res){
     }
 })
 
-//travelbriefing API
+//restcountries API
 
 app.post("/restcountries", async function (req, res) {
     console.log('req====+>', req.body)

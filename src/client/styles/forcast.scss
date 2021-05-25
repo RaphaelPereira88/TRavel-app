@@ -1,9 +1,11 @@
-#output2.active #weatherbloc{
-    text-align: center;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    margin:auto;
-    padding: 2px;
+#output2.active {
+    #weatherbloc{
+        text-align: center;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        margin:auto;
+        padding: 2px;
+    }
 }
 
 .displayed{
