@@ -1,5 +1,5 @@
-const weatherDatas = { }
-const infoTravel = { }
+let weatherDatas = { }
+let infoTravel = { }
 
 //The Path module provides a way of working with directories and file paths.
 const path = require('path')
@@ -32,7 +32,7 @@ app.listen(8081, function(){
 })
 
 app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
+// res.sendFile('dist/index.html')
     res.sendFile(path.resolve('dist/index.html'))
 })
 
@@ -49,10 +49,8 @@ const baseURL ='http://api.geonames.org/searchJSON?name_equals='
 const urlOption = '&maxRows=2&fuzzy=0.8&username='
 
 app.post("/geonameUrl", async function (req, res) {
-    console.log('req====+>', req.body)
     const result = await fetch(baseURL + req.body.sentence + urlOption+ process.env.API_username)
     try {
-        console.log(result)
         const response = await result.json();
         res.send(response)
         res.end() //using res.end()
@@ -67,12 +65,10 @@ const picUrl ='https://pixabay.com/api/?key='
 const apiOption ="&per_page=3&category=travel&image_type=photo"
 
 app.post("/pictureUrl", async function (req, res) {
-    console.log('req====+>', req.body)
     const result = await fetch(picUrl+ process.env.API_Key +"&q=" + req.body.sentence + apiOption)
     try {
         const response = await result.json();
         res.send(response)
-        console.log(response)
         res.end() //using res.end()
     } catch (error) {
         console.log("error", error);
@@ -86,10 +82,8 @@ app.post("/forcast", async function (req, res){
     const longitude = info.geonames[0].lng
     const result = await fetch("https://api.weatherbit.io/v2.0/forecast/daily?lat=" + latitude + "&lon=" + longitude +"&key="+ process.env.API_weatherKey)
     try{
-        console.log(result)
         let data = await result.json();
         Object.assign(weatherDatas, data);
-        console.log(data)
         res.end() //using res.end()
     }catch(error){
         console.log("error", error);
@@ -97,14 +91,11 @@ app.post("/forcast", async function (req, res){
 })
 
 //restcountries API
-
 app.post("/restcountries", async function (req, res) {
-    console.log('req====+>', req.body)
     const info = req.body
     const country = info.geonames[0].countryName
     const result = await fetch("https://restcountries.eu/rest/v2/name/"+ country )
     try{
-        console.log(result)
         let data = await result.json();
         const newData = {
             name: data[0].name,
@@ -120,9 +111,10 @@ app.post("/restcountries", async function (req, res) {
             flag : data[0].flag,
         }
         Object.assign(infoTravel, newData);
-        console.log(infoTravel)
         res.end() //using res.end()
     }catch(error){
         console.log("error", error);
     }
 })
+
+module.exports = app
