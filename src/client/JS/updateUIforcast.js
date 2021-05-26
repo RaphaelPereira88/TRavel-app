@@ -1,12 +1,12 @@
 const updateUIforcast = async() => {
-    const request = await fetch("/all")
+    const request = await fetch("http://localhost:8081/all")
     try {
         const allData = await request.json();
         let number = 0
         const divForecast = document.getElementById('output2');
         const weatherBloc = document.createElement("DIV")
-        
         divForecast.className = "active";
+        //creates all the box for the 16 days forcast
         for (const x of allData.data){
             const weatherdata = document.createElement("DIV")
             const day = document.createElement("DIV")
@@ -16,6 +16,7 @@ const updateUIforcast = async() => {
             const description = document.createElement("DIV")
             const icon = document.createElement("IMG")
             const inputDate = document.getElementById('start').value
+            //update datas displayed
             day.innerHTML= allData.data[number].valid_date
             temp.innerHTML = "Temp: "+allData.data[number].temp+"℃";
             maxTemp.innerHTML = "Max: "+ allData.data[number].max_temp +"℃";

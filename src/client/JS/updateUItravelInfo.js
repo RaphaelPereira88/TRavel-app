@@ -1,5 +1,5 @@
 const updateUItravelInfo = async()=> {
-    const request = await fetch("/info")
+    const request = await fetch("http://localhost:8081/info")
     try {
         const allData = await request.json();
         console.log(allData)
@@ -17,7 +17,7 @@ const updateUItravelInfo = async()=> {
         const currencySymbol = document.createElement("DIV")
 
         const flag = document.createElement("IMG")
-    
+        // update datas displayed
         name.innerHTML= allData.name
         paragraphe.innerHTML ="Country information:"
         region.innerHTML = "Region:  " + allData.region
@@ -40,7 +40,7 @@ const updateUItravelInfo = async()=> {
         TravelBloc.appendChild(currencyName)
         TravelBloc.appendChild(currencySymbol)
         TravelBloc.appendChild(flag)
-
+        // allow activation of css rules set up 
         TravelBloc.className += "info";
         TravelBloc.id = "travelBloc"
         divInfo.appendChild(TravelBloc)

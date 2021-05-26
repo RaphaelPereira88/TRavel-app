@@ -1,12 +1,9 @@
 const clean = () =>{
-    
     document.getElementById("days_left").innerHTML = ""
     document.getElementById("trip_length").innerHTML = ""
 
     const weather = document.getElementById("output1")
     const divForecast = document.getElementById('output2')
-
-    
     const divInfo = document.getElementById('output3')
     const maxTemp = document.getElementById("maxTemp")
     const minTemp = document.getElementById("minTemp")

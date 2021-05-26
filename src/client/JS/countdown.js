@@ -1,7 +1,6 @@
 import {timeLeft}from './timeLeft'
 
 function countdown (response){
-    
     const inputStartDate = document.getElementById('start').value
     const inputEndDate = document.getElementById('end').value
     const time = timeLeft(inputStartDate)
@@ -10,6 +9,7 @@ function countdown (response){
     const lenghStay= Math.ceil(lengthtrip - time) 
     const cityName = response.geonames[0].name 
     const countryName = response.geonames[0].countryName 
+    //use of timeleft function to provide the right mesage to the user
     if(time < 0.2){
         document.getElementById("days_left").innerHTML = "Its's Time for your trip in "+ cityName + " ( " + countryName + " ) in few Hours!!!&nbsp "; 
     }else if(time > 0.2 && time < 0.8){

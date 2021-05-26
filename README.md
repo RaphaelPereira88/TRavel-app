@@ -54,3 +54,30 @@ To create the env file , I used *dotenv*, see decription below:
 
 ### service workers installed.
 
+### Dependdencies used: 
+
+1)" Path " module provides a way of working with directories and file paths.
+
+2) "Express" to run server and routes
+
+3)" bodyParser" is the Node. js body parsing middleware. It is responsible for parsing the incoming request bodies in a middleware before you handle it.Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST) and exposes the resulting object (containing the keys and values) on req. body .
+
+4)" Cors" is a middleware for cross origin allowance, It allows you to make requests from one website to another website in the browser,
+
+5) "node-fetch" be able to use fetch
+
+6)"dotenv" to hide keys etc..
+
+7)"babel"  is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
+
+8)"jest" to be able to make tests
+
+9)"webpack-dev-server" provides live reloading. This should be used for development only. It uses a webpack-dev-middleware which provides fast in-memory access to the webpack assets.
+
+10)"node-sass"   "sass-loader"  "style-loader": for compiling SCSS/Sass files.
+
+11) "service worker" service worker is a script that your browser runs in the background, separate from a web page, opening the door to features that don't need a web page or user interaction. Today, they already include features like push notifications and background sync
+
+
+
+

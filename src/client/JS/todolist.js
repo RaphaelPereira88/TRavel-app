@@ -13,12 +13,13 @@ const todolist=()=>{
     x.appendChild(buttonAdd)
     buttonAdd.hidden = true
     newAddition.hidden = true
-
+//to make the input box (to add todos) appeared 
     addNotesButton.addEventListener('click',function(){
         x.setAttribute("placeholder", "enter your notes")
         buttonAdd.toggleAttribute("hidden")
         newAddition.toggleAttribute("hidden")
     })
+    //to make the todos appeared , also able to remove them etc...
     document.getElementById("add").addEventListener('click',function(){
         const newnotes = document.createElement("LI")
         const buttonRemove = document.createElement("BUTTON")

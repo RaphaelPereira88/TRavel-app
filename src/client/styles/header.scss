@@ -2,7 +2,10 @@
     text-align:center;
     margin:auto;
     margin-top:15px;
-    width:40%;
+    width:100%;
+}
+header{
+    width:100%;
 }
 
 .item1{
@@ -11,7 +14,7 @@
         margin-top:10px;
         margin:auto;
         border-radius: 100px 100px;
-        font-size: 3vh;
+        font-size: 2vh;
         font-family: "Skyscanner Relative",-apple-system,BlinkMacSystemFont,"Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
         background-color: rgb(106, 108, 231);
         box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
