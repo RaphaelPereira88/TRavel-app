@@ -13,6 +13,5 @@ it('gets the test endpoint', async done =>{
   const response = await request.get('/info')
   expect(response.status).toBe(200)
   expect(response.body.message).toBe('pass!')
-  done()
 })
 
