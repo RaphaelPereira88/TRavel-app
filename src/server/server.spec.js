@@ -1,5 +1,5 @@
 const request = require("supertest")
-const app = require("./index")
+const app = require('../index')
 
 it("gets the test endpoint", () => {
   request.get("/info").then((response) => {

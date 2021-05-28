@@ -113,5 +113,3 @@ app.post("/restcountries", async function (req, res) {
         console.log("error", error);
     }
 })
-
-module.exports = {app}
