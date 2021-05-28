@@ -1,17 +1,8 @@
+const request = require("supertest")
+const app = require("./index")
 
-
-const app = require('../server') // Link to your server file
-const supertest = require('supertest')
-const request = supertest(app)
-
-app.get('/info', async (req, res) => {
-  res.json({message: 'pass!'})
-})
-
-
-it('gets the test endpoint', async done =>{
-  const response = await request.get('/info')
-  expect(response.status).toBe(200)
-  expect(response.body.message).toBe('pass!')
-})
-
+it("gets the test endpoint", () => {
+  request.get("/info").then((response) => {
+    expect(response.statusCode).toBe(200);
+  });
+});

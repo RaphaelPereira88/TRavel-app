@@ -27,9 +27,6 @@ app.use(cors());
 
 app.use(express.static('dist'));
 
-app.listen(8081, function(){
-    console.log(`running on localhost: 8081`)
-})
 
 app.get('/', function (req, res) {
 // res.sendFile('dist/index.html')
@@ -117,4 +114,4 @@ app.post("/restcountries", async function (req, res) {
     }
 })
 
-module.exports = app
+module.exports = {app}
