@@ -8,7 +8,7 @@ function pictures(inputText){
             //set up an image if API pixabay doesn't have onr for the city selected
             pic.setAttribute("src", data.hits[0].webformatURL)
         } catch(error) {
-            pic.setAttribute("src", "https://treefurniturerental.ca/wp-content/uploads/2017/05/sorry-image-not-available.jpg")
+            pic.setAttribute("src", "https://rlv.zcache.co.uk/sorry_temporarily_unavailable_classic_round_sticker-rdd48f59c95bf4e5a8a006fe959e51469_0ugmp_8byvr_540.jpg")
         }
     })
 }
