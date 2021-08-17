@@ -1,3 +1,4 @@
+
 #output2.active {
     #weatherbloc{
         text-align: center;
@@ -35,5 +36,13 @@
     img{
         width: fit-content;
         height: auto;
+    }
+}
+
+@media only screen and (max-width:400px){
+    #output2.active {
+        #weatherbloc{
+            grid-template-columns: auto auto;
+        }
     }
 }
